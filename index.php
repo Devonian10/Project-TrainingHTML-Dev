@@ -25,7 +25,7 @@ if ($conn -> connect_error){
     <table border="2">
         <tr class = "Danger">
             <th><? $data= [""]?></th>
-            <th></th>
+            <th><?php  ?></th>
         </tr>
     </table>
 </body>
