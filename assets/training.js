@@ -112,19 +112,32 @@ console.log(firsName, lastName);
 
 const favourite = ["Games", "Food and beverage", "Anime", "CSGO", 54, 434.5];
 
-const  [firstGames, secondFood, thirdAnime, fourthGames, fifthFood, sixthNumber]= favourite;
+let midName;
+midName = "Devonian";
+console.log(midName);
 
-console.log(favourite);
-console.log(firstGames);
-console.log(secondFood);
-console.log(thirdAnime);
-console.log(fourthGames);
-console.log(fifthFood);
-console.log(sixthNumber)
+let x = 10;
+let y = 20;
 
-console.log("Hello World");
-let namadepan = "Skywalker";
-const namabelakang = "depan";
-console.log(namadepan);
-console.log(namabelakang);
-  
+if (x % 2==0){
+  console.log("Yes");
+} else {
+  console.log("NO");
+}
+let bilangan = 7574630;
+
+let x1 = bilangan.toString(),
+  sisa  =   x1.length%3,
+  rupiah = x1.substring(0,sisa),
+  ribuan = x1.substring(sisa).match(/\d{3}/gi);
+
+if (ribuan){
+  separator = sisa ? '.':'';
+  rupiah += separator+ ribuan.join('.');
+
+}
+console.log(rupiah);
+
+let x2 = 393858;
+var y2 = 38474792;
+

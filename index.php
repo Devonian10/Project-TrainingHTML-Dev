@@ -23,10 +23,8 @@ if ($conn -> connect_error){
 
     </h1>
     <table border="2">
-        <tr class = "Danger">
-            <th><? $data= [""]?></th>
-            <th><?php  ?></th>
-        </tr>
+        <th></th>
+        
     </table>
 </body>
 </html>
