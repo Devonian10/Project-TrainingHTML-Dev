@@ -1,9 +1,7 @@
 .body {
     background-color: white;
+
+}.card-header {
+    font-family: cursive;
 }
-.container {
-    display: contents;
-    font-size: 15px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    
-}
+
