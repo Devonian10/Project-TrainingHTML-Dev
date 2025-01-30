@@ -4,4 +4,6 @@
 }.card-header {
     font-family: cursive;
 }
-
+.nav-link {
+    color: white !important;
+}
