@@ -1,3 +1,4 @@
 let characters = [];
 
-let 
+const Render = "render-characters"
+const Event = "Event-Characters"
