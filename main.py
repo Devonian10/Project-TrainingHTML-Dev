@@ -21,3 +21,32 @@ print(volume_tabung)
 
 print((a >= b and a <= c))
 
+for x in range(6):
+    print("Angka")
+
+for i in range(1, 20, 2):
+    if i == 19:
+        break
+    print(i)
+
+for i in range(3, 50, 3):
+    if i == 21:
+        continue
+    print(i)
+
+for i in range(1, 11):
+    if i % 2 == 0:
+        continue
+    print("Hasil abis bagi 2 adalah ", i)
+
+for i in range (2,22,3):
+    if i % 2 != 0:
+        break
+    print(i)
+
+x = 1
+while x < 6:
+  x += 1
+  if x == 3:
+    break
+  print(x)
