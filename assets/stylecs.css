@@ -1,0 +1,11 @@
+* {
+    font-family: "Montserrat";
+}
+h1 {
+    font-weight: 700;
+    font-size: 24px;
+    font-style: italic;
+}
+a {
+    text-decoration: none;
+}
