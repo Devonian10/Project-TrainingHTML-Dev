@@ -66,6 +66,9 @@ if (menu == 'food'):
     elif (menu1 == 'Capcay'):
         money -= price_food[3]
         res1 = money
+    else:
+        money -= 0
+        res1 = money
 #Ini Untuk Minuman
 elif (menu == 'drink'):
     if (menu1 == 'Jus Alpukat'):
@@ -77,6 +80,7 @@ elif (menu == 'drink'):
     elif (menu1 == 'Jus Kelp'):
         money -= price_drink[2]
         res1 = money
-else:
-    print('Tidak ada kategori ')
+elif(menu == ''):
+    print('Tidak ada kategori')
+
 print(f'Kembalian uang anda adalah {res1}')
