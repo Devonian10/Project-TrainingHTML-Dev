@@ -11,7 +11,20 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
+  <style>
+    * {
+      font-family: "Montserrat";
+    }
+    h1 {
+      font-weight: 300;
+      font-size: 24px;
+    }
+  </style>
   <body>
     <header>
       <h1>Coder</h1>
@@ -111,18 +124,28 @@
     <span></span>
     <em>Etc.</em>
     <div>
-      <table>
+      <table style="background-color: darkblue" border="2">
         <tr>
           <th>No</th>
           <th>Nama</th>
           <th>NIM</th>
         </tr>
         <tr>
-          <td></td>
+          <td colspan="3"></td>
           <td></td>
           <td></td>
         </tr>
       </table>
+
+      <br />
+      <div class="artikel">
+        <p id = "Devon" class="Devon">
+          <button type="button" onclick="myFunction()">Click Me <p class="Devon">Hai</p></button>
+          
+        </p>
+        
+      </div>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>
