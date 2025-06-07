@@ -42,7 +42,7 @@ print("Hasil nilai kamu adalah : " + str(hasil))
 dimentional = str(input('Pilih Luas bangun datar : "Persegi","Persegi Panjang", "Belah Ketupat", "Jajar Genjang", "Segitiga": '))
 number3 = float(input("Masukkan nilai : "))
 number4 = float(input("Masukkan nilai : "))
-if dimentional == 'Persegi':
+if (dimentional == 'Persegi'):
     res = math.pow(number3,2)
 elif dimentional == 'Persegi Panjang':
     res = number3 * number4
@@ -55,4 +55,20 @@ elif dimentional == 'Segitiga' :
 
 print(f'Luas {dimentional} pada bangun datar nilai 1: {number3} dan nilai 2: {number4} adalah {res} ')
 
-
+preproInsulin = 'malwmrllpl lallalwgpd paaafvnqhl cgshlvealy lvcgergffy \
+tpktrreaed lqvgqvelgg gpgagslqpl alegslqkrg iveqcctsic slyqlenycn'
+ 
+print(preproInsulin)
+ 
+preproInsulin = preproInsulin.replace(' ', '')
+print(preproInsulin)
+ 
+lsinsulin = preproInsulin[0:24]
+binsulin = preproInsulin[24:54]
+cinsulin = preproInsulin[54:89]
+ainsulin = preproInsulin[89:110]
+ 
+print(f'lsinsulin: {lsinsulin}. length: {len(lsinsulin)}')
+print(f'binsulin: {binsulin}. length: {len(binsulin)}')
+print(f'cinsulin: {cinsulin}. length: {len(cinsulin)}')
+print(f'ainsulin: {ainsulin}. length: {len(ainsulin)}')

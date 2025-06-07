@@ -51,3 +51,14 @@ while x < 6:
     break
   print(x)
 
+print("Hello World")
+
+pi = 22/7
+def calculateCircleArea(radius):
+    area = pi * radius * radius
+    return area
+
+r = input("circle radius: ")
+circleArea = calculateCircleArea(float(r))
+
+print (f'circle area : {circleArea}' )
