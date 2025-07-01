@@ -1,0 +1,106 @@
+AWSTemplateFormatVersion: 2010-09-09
+ 
+Parameters:
+  LabVpcCidr:
+    Type: String
+    Default: 10.0.0.0/16
+ 
+  PrivateSubnetCidr:
+    Type: String
+    Default: 10.0.1.0/24
+ 
+  LinuxAmiId:
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
+ 
+ 
+Resources:
+# Internet Gateway
+  LabIgw:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: Lab IGW
+ 
+# IGW Attachment
+  IgwAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    DependsOn:
+      - LabIgw
+      - LabVpc
+    Properties:
+      InternetGatewayId: !Ref LabIgw
+      VpcId: !Ref LabVpc # Required
+ 
+# Private Subnet
+  PrivateSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: !Select
+      - 0
+      - !GetAZs
+        Ref: AWS::Region
+      CidrBlock: !Ref PrivateSubnetCidr
+      MapPublicIpOnLaunch: false
+      Tags:
+        - Key: Name
+          Value: Private Subnet
+      VpcId: !Ref LabVpc # Required
+ 
+# Private Route Table
+  PrivateRtb:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags:
+        - Key: Name
+          Value: Private Route Table
+      VpcId: !Ref LabVpc # Required
+ 
+# Private RTB Association
+  PrivateSubnetRtbAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PrivateRtb # Required
+      SubnetId: !Ref PrivateSubnet # Required
+ 
+# EC2 Instance
+  AppServer:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref LinuxAmiId
+      InstanceType: t3.micro
+      SecurityGroupIds:
+        - !Ref SshSg
+      SubnetId: !Ref PrivateSubnet
+      Tags:
+        - Key: Name
+          Value: App Server
+ 
+# Security Group
+  SshSg:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow SSH connection from anywhere # Required
+      GroupName: SSH SG
+      SecurityGroupIngress:
+        - CidrIp: 0.0.0.0/0
+          Description: Allow port 22
+          FromPort: 22
+          IpProtocol: tcp
+          ToPort: 22
+      Tags:
+        - Key: Name
+          Value: SSH SG
+      VpcId: !Ref LabVpc
+ 
+# Lab VPC
+  LabVpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref LabVpcCidr
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: Lab VPC
